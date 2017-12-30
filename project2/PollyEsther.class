@@ -1,0 +1,31 @@
+class PollyEsther  
+{  
+  public static void main(String[] args)  
+  {  
+    Poly p0 = new Poly();  
+    Poly p1 = new Poly().term(1, 3).term(7, 1).term(1, 2);  
+    Poly p2 = new Poly().term(-2, 1).term(3, 2);
+    Poly p3 = new Poly().term(1, 1).term(1, 2).term(1, 3);
+    Poly p4 = new Poly().term(5, 1).term(1, 9).term(2, 3);
+    Poly p5 = p1.minus();
+    Poly p6 = p2.minus();
+
+  
+  
+    System.out.println(p0);           //  0  
+    System.out.println(p1);           //  1x3 + 1x2 + 1x1  
+    System.out.println(p2);           //  3x2 - 2x1  
+    System.out.println(p3);			//1x3 + 1x2 + 1x1
+    System.out.println(p4);			//1x9 + 2x3	+ 5x1
+  	System.out.println(p5);		// -1x3 - 1x2 - 7x1
+  	System.out.println(p6);			// -3x2 + 2x1
+  
+    System.out.println(p1.plus(p2));  //  1x3 + 4x2 + 5x1  
+    System.out.println(p4.plus(p3));	//1x9 + 3x3 + 1x2 + 6x1
+    System.out.println(p5.plus(p4));	//1x9 + 1x3 - 1x2 - 2x1
+    System.out.println(p4.plus(p1));	//1x9 + 3x3 + 1x2 + 7x1
+   
+
+   
+  }  
+}
