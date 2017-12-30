@@ -1,0 +1,15 @@
+class Main
+{
+	public static void main(String[] args)
+	{
+	BinarySearchTree tree = new BinarySearchTree();  
+	Nomenclator nomenclator = new Nomenclator("lab5_finne251.java", true);  
+
+	while (nomenclator.hasNext())  
+	{  
+	  tree.add(nomenclator.nextNumber(), nomenclator.nextName());  
+	}  
+		tree.traverse(tree.root);
+	}
+	
+}
