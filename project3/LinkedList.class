@@ -1,0 +1,56 @@
+class LinkedList
+{
+	class LLNode 
+	{
+		public int line;
+		public LLNode next;
+		
+		public LLNode(int line, LLNode next)
+		{
+			this.line = line;
+			this.next = null;
+		}
+	}
+	
+	public LLNode head;
+	
+	public LinkedList(int line)
+	{
+		head =  new LLNode(line, null);
+	}
+	
+	
+	public void put(int line)
+	{
+		LLNode left = head;
+		LLNode right = head.next;
+		while(right != null)
+		{
+			if(line == left.line)
+			{
+				return;
+			}
+			else if(line > left.line)
+			{
+				left.next = new LLNode(line, right);
+				return;
+			}
+			left = right;
+			right = right.next;
+	
+		}
+		left.next = new LLNode(line, null);
+	}
+	
+	public void get(LLNode head)
+	{
+		LLNode temp = head;
+		
+		while(temp != null)
+		{
+			System.out.format("%05d", temp.line);
+			temp = temp.next;
+		}
+	}
+		
+}
