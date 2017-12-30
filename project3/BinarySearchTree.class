@@ -1,0 +1,90 @@
+class BinarySearchTree
+{
+	
+	class Node 
+	{
+		private String key;
+		public LinkedList value;
+		private Node left;
+		private Node right;
+		
+		public Node(String key, int number)
+		{
+			this.key = key;
+			value = new LinkedList(number);
+			left = null;
+			right = null;
+		}
+	}
+	
+	public Node root;
+	
+	public BinarySearchTree()
+	{
+		root = new Node("", 0);
+	}
+	
+	public void add(int number, String key)
+	{
+		Node temp = root;
+		if(temp.key == "")
+		{
+			root = new Node(key, number);
+		}
+		else 
+		{
+			while(true)
+			{
+				int lexi = key.compareTo(temp.key);
+				
+				if(lexi < 0)
+				{
+					if(temp.left == null)
+					{
+						temp.left = new Node(key, number);
+						return;
+					}
+					else
+					{
+						temp = temp.left;
+					}
+				}
+				else if(lexi > 0)
+				{
+					if(temp.right == null)
+					{
+						temp.right = new Node(key, number);
+						return;
+					}
+					else
+					{
+						temp = temp.right;
+					}
+				}
+				else
+				{
+					temp.value.put(number);
+					return;
+				}
+				
+			}
+		}
+	}
+	
+	
+	public void traverse(Node root)
+	{
+		Node temp = root;
+		if(temp != null )
+		{	
+			
+			traverse(temp.left);
+			
+			System.out.print(temp.key + "     ");
+			temp.value.get(temp.value.head);
+			System.out.println();
+		
+			traverse(temp.right);
+		}
+	}
+}
